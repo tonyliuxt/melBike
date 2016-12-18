@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MelBike</string>
+    <string name="title_activity_maps">MelBike</string>
+
+    <string name="restful">https://data.melbourne.vic.gov.au/resource/qnjw-wgaj.json</string>
+    <string name="homepass">https://docs.google.com/document/d/1RlghEA0ei2IaE15ZOhd8h4JnDJU19xr0HH-6EyraBHo/edit</string>
+</resources>
