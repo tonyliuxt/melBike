@@ -1,5 +1,7 @@
 package com.homepass.melbike;
 
+import com.homepass.melbike.utility.Functions;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,7 +11,8 @@ import static org.junit.Assert.*;
  */
 public class MelBikeUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void retrieveData_isCorrect() throws Exception {
+        // retrieve data without exception
+        assertTrue(Functions.retrieveBikeSites());
     }
 }

@@ -102,6 +102,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
             this.marker = inmarker;
             autoText.setText(inmarker.getTitle());
             naviBtn.setEnabled(true);
+            autoText.clearFocus();
         }
         return false;
     }
@@ -183,6 +184,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
             // Temp bike site namelist used only for AutoComplete Text
             List<String> bikelist = new ArrayList<String>();
             for(BikeSite bikeSite: GlobalStatic.G_List_BikeSite){
+                // same number same color, different number different color.
                 String hexcolor = String.format("#%06X",(0xFFFFFF & (-((bikeSite.getNbemptydoc()*5 + 30) * Constants.COLOR_ADJUDGEMENT))));
                 LatLng position = new LatLng(bikeSite.getCoordinates().getCoordinates()[1], bikeSite.getCoordinates().getCoordinates()[0]);
                 Marker marker = mMap.addMarker(new MarkerOptions()
