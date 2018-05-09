@@ -22,15 +22,17 @@
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+
+             CANNOT DISPLAY MAP REASONS: https://stackoverflow.com/questions/40055893/ensure-that-the-google-maps-android-api-v2-is-enabled-i-am-getting-this-error/48551581#48551581What I saw was that the key was restricted to Android apps. But I was working on an Android app, how could this be the issue? Anyhow, I switched Key Restriction to None, reran my app, and GoogleMap loaded just as it should had.
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyCztWt9Q1RPKGFJfp1hMnOmIt1gAtT3WZ8" />
 
         <activity
             android:name=".activity.MapsActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:theme="@android:style/Theme.DeviceDefault"
             android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

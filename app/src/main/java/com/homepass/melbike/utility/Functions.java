@@ -1,5 +1,6 @@
 package com.homepass.melbike.utility;
 
+
 /**
  * Created by Tony Liu on 2016/12/18.
  */
@@ -11,6 +12,7 @@ public class Functions {
      */
     public static boolean retrieveBikeSites(){
         try{
+
             RestfulRequest restfulRequest = new RestfulRequest();
             restfulRequest.execute();
             return true;

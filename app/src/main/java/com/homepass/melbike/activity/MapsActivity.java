@@ -40,6 +40,10 @@ import com.homepass.melbike.utility.GlobalStatic;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import javax.net.ssl.SSLContext;
+import java.security.NoSuchAlgorithmException;
+import com.google.android.gms.security.ProviderInstaller;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 
 /**
  * Created by Tony Liu
@@ -52,6 +56,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
     private String[] bikeSiteArray;
     private Marker marker = null;
     private Button naviBtn;
+    private Context context;
 
     // Internal notification message Handler
     private static class InnerHandler extends Handler{
@@ -93,6 +98,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
             }
         });
         naviBtn.setEnabled(false);
+        context = getApplicationContext();
     }
 
     @Override
@@ -171,7 +177,29 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback, Go
         marker = mMap.addMarker(new MarkerOptions().position(melbourne).title("City of Melbourne").alpha(0.2f));
         mMap.animateCamera(CameraUpdateFactory.newLatLng(melbourne));
         // start retrieve bike sites list from RESTFul API
+        initializeSSLContext(context);
         Functions.retrieveBikeSites();
+    }
+
+
+    /**
+     *
+     * Initialize SSL
+     * @param mContext
+     */
+    public static void initializeSSLContext(Context mContext){
+        try {
+            SSLContext.getInstance("TLSv1.2");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        try {
+            ProviderInstaller.installIfNeeded(mContext.getApplicationContext());
+        } catch (GooglePlayServicesRepairableException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

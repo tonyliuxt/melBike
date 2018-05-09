@@ -36,6 +36,8 @@ public class RestfulRequest extends AsyncTask<Void, Void, List<BikeSite>> {
         return null;
     }
 
+
+
     @Override
     protected void onPostExecute(List<BikeSite> bikelist){
         GlobalStatic.G_List_BikeSite = bikelist;
